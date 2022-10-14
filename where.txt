@@ -1,0 +1,58 @@
+C:\NewDir>where /R "C:\NewDir" * /T
+         0   2022/10/14      22:19:54  C:\NewDir\Directory01\Directory01_01\NewFile01.txt
+         0   2022/10/14      22:19:54  C:\NewDir\Directory01\Directory01_01\NewFile02.txt
+         0   2022/10/14      22:19:54  C:\NewDir\Directory01\Directory01_02\NewFile01.txt
+         0   2022/10/14      22:19:54  C:\NewDir\Directory01\Directory01_02\NewFile02.txt
+         0   2022/10/14      22:19:54  C:\NewDir\Directory02\Directory02_01\NewFile01.txt
+         0   2022/10/14      22:19:54  C:\NewDir\Directory02\Directory02_01\NewFile02.txt
+         0   2022/10/14      22:19:54  C:\NewDir\Directory02\Directory02_02\NewFile01.txt
+         0   2022/10/14      22:19:54  C:\NewDir\Directory02\Directory02_02\NewFile02.txt
+
+
+-----------------------------------------------------------------------------------------------------------
+
+
+WHERE [/R ディレクトリ] [/Q] [/F] [/T] パターン...
+
+説明:
+    検索パターンに一致するファイルの場所を表示します。
+    既定では、現在のディレクトリおよび PATH 環境変数によって指定された
+    パス内を検索します。
+
+パラメーター一覧:
+    /R       指定したパターンに一致するファイルを、指定したディレクトリから
+             開始して再帰的に検索し表示します。
+
+    /Q       一致したファイルの一覧を表示せずに、終了コード
+             のみを返します (Quiet モード)。
+
+    /F       一致したファイル名を二重引用符内に表示します。
+
+    /T       一致したすべてのファイルのサイズ、最終変更日および時刻を
+             表示します。
+
+    パターン ファイルの検索パターンを指定します。パターンには
+             ワイルドカードである * および ? を使用することができます。
+             "$env:pattern" や "path:pattern" 形式で指定する
+             こともできます。"env" は環境変数で、"env" 環境
+             変数で指定されたパスで検索が行われます。これら
+             の形式は /R スイッチと同時には使用できません。
+             パターンに PATHEXT 変数の拡張子を追記して
+             検索を実行することもできます。
+
+     /?      このヘルプを表示します。
+
+  注意: このツールは、検索に成功するとエラー レベル 0 を、
+        成功しなかった場合は 1 を、失敗またはエラーの場合は
+        2 を返します。
+
+例:
+    WHERE /?
+    WHERE myfilename1 myfile????.*
+    WHERE $windir:*.*
+    WHERE /R c:\windows *.exe *.dll *.bat
+    WHERE /Q ??.???
+    WHERE "c:\windows;c:\windows\system32:*.dll"
+    WHERE /F /T *.dll
+
+C:\NewDir>
